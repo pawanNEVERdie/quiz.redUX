@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+These are the 5 steps that we’ll go through:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Settings component
+Setting up a simple redux store
+Making the questions request
+Adding a question component
+The final page
+You’ll notice that I haven’t included the styling files in the article, but you can see the app css file here.
 
-## Available Scripts
+Getting started
+The first thing I did was find a good API resource for the questions. After a bit of Googling I found Open Trivia Database, which has thousands of questions and is moderated. If you take a look at the API config you can see that there are all the parameters you need to create a quiz platform: number of questions, category, difficulty, type & encoding options.
 
-In the project directory, you can run:
+Using create-react-app, I set up using the default options, opting not to add redux initially (this is something that I reassess later). Start by running these commands in your terminal:
+npx create-react-app quiz-app --template typescript
 
-### `npm start`
+Let’s begin by working on the settings page at src/Components/Settings.js, which is the first component that the user will see.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We’re going to use a functional component, so the first step is outlining this:
+Next we want to create the structure of the interface using JSX. We know from the API config that we want inputs to control the question category, question difficulty, question type, and the amount of questions.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We can retrieve the question categories from this endpoint: https://opentdb.com/api_category.php. We’re going to make this request and save the categories in the component using the React state hook and effect hook, like so:
+We import useEffect and useState from react, then we can declare a state variable for the options with an initial null value. This is where we will store the data from the API response using setOptions.
 
-### `npm test`
+In a useEffect hook we declare the api url, make a request using fetch, then pass the necessary json as a payload in setOptions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The question categories are now available in the state as options, so let’s make them selectable!
+Firstly, we declare a state variable for questionCategory, with the initial value of an empty string. We will use setQuestionCategory to update this value.
 
-### `npm run build`
+Then we want to give the option of to retrieve questions from all categories, which we hard code as an option. For the rest of the options we map the array of options, making sure to assign each option a key for reactivity. We use the name as the option display, while using the id as the option value, as this is the value expected by the API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Now we add an onChange event named handleCategoryChange, which uses setQuestionCategory to update questionCategory in the state whenever the user selects an option.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Finally, we bind the value of the select element to questionCategory.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Now we can add in a simple loading state:
+simple redux stro intiating 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+and then after wrapping the provider in between App in index.tsx file and then after then having the dispatch actions having there types and after handle change handledifficult all those functions will fe changes and after that thing we will be done the disptach actions and precius states and assignin types to those things in very weel ok and calling the distpach actions and havoing the value of presetn state by central strore of the thing 
+yarn add redux react-redux
+yarn add redux react-redux
