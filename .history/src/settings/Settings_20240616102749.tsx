@@ -42,7 +42,7 @@ const dispatch = useDispatch()
 
         })
     }
-    handleload(true);
+    handleChange(true);
     fetch(apiUrl)
       .then((res) => res.json())
       .then((response) => {
@@ -51,7 +51,7 @@ const dispatch = useDispatch()
       })
       .catch((error) => {
         console.error('Error fetching categories:', error);
-       handleload(false)
+       handleChange(false)
       });
   }, [setOptions,dispatch]); 
 

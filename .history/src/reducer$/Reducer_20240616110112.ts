@@ -46,11 +46,7 @@ interface InitialState {
   }
 |
 {
-  type:"SET_INDEX"; value:number;
-}
-|
-{
-  type:"SET_SCORE"; value:number;
+  
 }
  export  const Reducer  = (state =initState ,action:action)=>{
     switch(action.type){
@@ -72,7 +68,7 @@ interface InitialState {
             case "SET_SCORE":
               return {
                 ...state,
-                score: action.value
+                score: action.
               }
           
         case "CHANGE_DIFFICULTY":

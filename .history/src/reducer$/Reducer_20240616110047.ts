@@ -44,14 +44,11 @@ interface InitialState {
   | {
     type:"SET_QUESTIONS";value:Question[]
   }
-|
-{
-  type:"SET_INDEX"; value:number;
-}
-|
-{
-  type:"SET_SCORE"; value:number;
-}
+  {
+    {
+      type:"SET_QUESTIONS";value:Question[]
+    }
+  }
  export  const Reducer  = (state =initState ,action:action)=>{
     switch(action.type){
         case "CHANGE_LOADING":
@@ -72,7 +69,7 @@ interface InitialState {
             case "SET_SCORE":
               return {
                 ...state,
-                score: action.value
+                score: action.
               }
           
         case "CHANGE_DIFFICULTY":

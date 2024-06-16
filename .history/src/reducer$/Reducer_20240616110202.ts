@@ -46,11 +46,7 @@ interface InitialState {
   }
 |
 {
-  type:"SET_INDEX"; value:number;
-}
-|
-{
-  type:"SET_SCORE"; value:number;
+  type:SET_INDEX"
 }
  export  const Reducer  = (state =initState ,action:action)=>{
     switch(action.type){

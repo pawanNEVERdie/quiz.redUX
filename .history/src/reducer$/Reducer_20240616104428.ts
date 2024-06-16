@@ -1,13 +1,3 @@
-interface Question {
-
-  id: number;
-  category: string;
-  difficulty: string;
-  type: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-}
 interface InitialState {
     options: {
       loading: boolean;
@@ -16,9 +6,6 @@ interface InitialState {
       question_type: string;
       amount_of_questions: number;
     };
-    questions :Question[]
-    index: number,
-    score: number
   }
   
   const initState: InitialState = {
@@ -29,9 +16,7 @@ interface InitialState {
       question_type: "",
       amount_of_questions: 50,
     },
-    questions :[],
-    index:0,
-    score:0
+    qu
  } 
  type action =
   | { type: "CHANGE_LOADING"; value: boolean }
@@ -41,17 +26,6 @@ interface InitialState {
   | {
     type:"CHANGE_CATEGORY";value:string
   }
-  | {
-    type:"SET_QUESTIONS";value:Question[]
-  }
-|
-{
-  type:"SET_INDEX"; value:number;
-}
-|
-{
-  type:"SET_SCORE"; value:number;
-}
  export  const Reducer  = (state =initState ,action:action)=>{
     switch(action.type){
         case "CHANGE_LOADING":
@@ -63,18 +37,6 @@ interface InitialState {
                 }
 
             }
-            case "SET_INDEX":
-              return {
-                ...state,
-                index: action.value
-              }
-            
-            case "SET_SCORE":
-              return {
-                ...state,
-                score: action.value
-              }
-          
         case "CHANGE_DIFFICULTY":
             return{
                 ...state,options:{
@@ -104,11 +66,6 @@ interface InitialState {
                             amount_of_questions: action.value
                         }
                     } 
-                    case "SET_QUESTIONS":
-                      return {
-                        ...state,
-                        questions: action.value
-                      }    
               default:
                 return state;      
     }

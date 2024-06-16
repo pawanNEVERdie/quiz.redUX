@@ -35,14 +35,14 @@ const dispatch = useDispatch()
   useEffect(() => {
     // setLoading(true);
     const apiUrl = `https://opentdb.com/api_category.php`;
-    const handleload =(value:boolean)=>{
+    const handleloade =(value:boolean)=>{
         dispatch({
             type:"CHANGE_LOADING",
             loading:value
 
         })
     }
-    handleload(true);
+    handleChange(true);
     fetch(apiUrl)
       .then((res) => res.json())
       .then((response) => {
@@ -51,7 +51,7 @@ const dispatch = useDispatch()
       })
       .catch((error) => {
         console.error('Error fetching categories:', error);
-       handleload(false)
+       handleChange(false)
       });
   }, [setOptions,dispatch]); 
 
